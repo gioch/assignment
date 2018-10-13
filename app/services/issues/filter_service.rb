@@ -22,6 +22,6 @@ class Issues::FilterService
       issues = issues.where('LOWER(summary) LIKE ?', "%#{@data[:summary].downcase}%")
     end
 
-    issues.paginate(page: @data[:page], per_page: @data[:page_size])
+    issues.paginate(page: @data[:page], per_page: @data[:page_size] || 15)
   end
 end
